@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">ChopSticks</string>
+    <string name="player_2">Player 2</string>
+    <string name="player_1">Player 1</string>
+    <string name="wait">work on progress !!\n come back later.</string>
+    <string name="one_player">One Player</string>
+    <string name="two_players">Two Players</string>
+    <string name="p1_right">P1 Right Hand</string>
+    <string name="p1_left">P1 Left Hand</string>
+    <string name="p2_right">P2 Right Hand</string>
+    <string name="p2_left">P2 Left Hand</string>
+    <string name="meta_title">made by Pawan and Sahil</string>
+    <string name="play_button">Play Button</string>
+    <string name="p1wontext">Congrats!!\nPlayer 1 Won.</string>
+    <string name="p2wontext">Congrats!!\nPlayer 2 Won.</string>
+    <string name="restart">Restart</string>
+    <string name="home">HOME</string>
+    <string name="selection_dot_desc">if this dot is visible then this hand is selected</string>
+    <string name="p1_dot_desc">if it is visible then it\'s Player 1\'s turn.</string>
+    <string name="p2_dot_desc">if it is visible then it\'s Player 2\'s turn.</string>
+    <string name="shuffle">Shuffle</string>
+    <string name="about">About</string>
+    <string name="play">Play</string>
+    <string name="quit">Quit</string>
+    <string name="game_desc"><![CDATA[\nChopsticks is a hand game for two or more players, in which players extend a number of fingers from each hand and transfer those scores by taking turns to tap one hand against another. Chopsticks is an example of a combinatorial game, and is solved in the sense that with perfect play, an optimal strategy from any point is known.&quot;\n\n\nRules:\n\n\t1.\tA hand is live if it has at least one finger, and this is indicated by raising at least one finger. If a hand has zero fingers, the hand is dead, and this is indicated by raising zero fingers (i.e. a closed fist).\n\n\t2.\tIf any hand of any player reaches exactly five fingers, then the hand is dead.\n\n\t3.\tEach player begins with one finger raised on each hand. After the first player turns proceed clockwise.\n\n\t4.\tOn a player\'s turn, they must either attack or split. There are two types of splits, transfers and divisions.\n\n\t5.\tTo attack, a player uses one of their live hands to strike an opponent\'s live hand. The number of fingers on the opponent\'s struck hand will increase by the number of fingers on the hand used to strike\n\n\t6.\tTo transfer, a player strikes their own two hands together, and transfers raised fingers from one hand to the other as desired. However, a player cannot transfer fingers to make a hand have more than 4 fingers.\n\n\t7.\tIf a player has a dead hand, the player can divide the fingers between the other hand and the dead hand by transferring fingers from the other hand to the dead hand.\n\n\t8.\tA player with two dead hands is eliminated from the game.\n\n\t9.\tA player wins once all opponents are eliminated.\n\n\nMoves:\n\nUnder normal rules, there are a maximum of 14 possible moves:\n\t•\tFour attacks (A–C, A–D, B–C, B-D)\n\t•\tFour divisions (02-11, 03-12, 04-13, 04-22)\n\t•\tSix transfers (13-22, 22-13, 14-23, 23-14, 24-33, 33-24)\n\]]></string>
+    <string name="you">You</string>
+    <string name="cpu">CPU</string>
+    <string name="uwon">Congrats!!\nYou Won.</string>
+    <string name="ulost">Oops!!\nYou Lost.</string>
+</resources>

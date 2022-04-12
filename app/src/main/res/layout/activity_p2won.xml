@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/cardview_dark_background"
+    android:layout_height="match_parent"
+    tools:context=".p2won">
+
+    <TextView
+        android:id="@+id/p2Wontxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:shadowColor="@color/purple_shadow"
+        android:shadowRadius="32"
+        android:text="@string/p2wontext"
+        android:textAlignment="center"
+        android:textColor="@color/purple_text"
+
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/restartBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/restart"
+        android:shadowRadius="32"
+        android:background="@color/cardview_dark_background"
+        android:textColor="@color/blue_text"
+        android:shadowColor="@color/blue_shadow"
+        app:layout_constraintEnd_toEndOf="@+id/p2Wontxt"
+        app:layout_constraintStart_toStartOf="@+id/p2Wontxt"
+        app:layout_constraintTop_toBottomOf="@+id/p2Wontxt" />
+
+    <Button
+        android:id="@+id/homeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:shadowRadius="32"
+        android:background="@color/cardview_dark_background"
+        android:textColor="@color/blue_text"
+        android:shadowColor="@color/blue_shadow"
+        android:text="@string/home"
+        app:layout_constraintEnd_toEndOf="@+id/restartBtn"
+        app:layout_constraintStart_toStartOf="@+id/restartBtn"
+        app:layout_constraintTop_toBottomOf="@+id/restartBtn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
