@@ -304,6 +304,7 @@ public class chopStickOne extends AppCompatActivity {
                 shuffled.set(false);
                 changeImage(pLeft, pLRcLR[0]);
                 changeImage(pRight, pLRcLR[1]);
+                Arrays.fill(SelectedpLRcLR, false);
             }
         });
     }
@@ -363,6 +364,28 @@ public class chopStickOne extends AppCompatActivity {
                 shuffled.set(false);
                 return;
             }
+        }
+
+
+        if((pLRcLR[0]+pLRcLR[2])==5) {
+            SelectedpLRcLR[0]=true;
+            SelectedpLRcLR[2]=true;
+            return;
+        }
+        if((pLRcLR[1]+pLRcLR[2])==5) {
+            SelectedpLRcLR[1]=true;
+            SelectedpLRcLR[2]=true;
+            return;
+        }
+        if((pLRcLR[0]+pLRcLR[3])==5) {
+            SelectedpLRcLR[0]=true;
+            SelectedpLRcLR[3]=true;
+            return;
+        }
+        if((pLRcLR[1]+pLRcLR[3])==5) {
+            SelectedpLRcLR[1]=true;
+            SelectedpLRcLR[3]=true;
+            return;
         }
 
         int pRandom = new Random().nextInt(2);
