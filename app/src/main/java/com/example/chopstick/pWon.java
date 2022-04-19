@@ -15,7 +15,7 @@ public class pWon extends AppCompatActivity {
         setContentView(R.layout.activity_pwon);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        Intent restart = new Intent(pWon.this, chopStick.class);
+        Intent restart = new Intent(pWon.this, chopStickOne.class);
 
         Button h = findViewById(R.id.homeBtn);
         Button r = findViewById(R.id.restartBtn);
