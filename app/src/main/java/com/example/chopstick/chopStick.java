@@ -158,16 +158,12 @@ public class chopStick extends AppCompatActivity {
                             p1LRp2LR[3]-=5;
                         }
                         changeImage(p2Right,p1LRp2LR[3]);
-                        p2RDot.setVisibility(View.INVISIBLE);
-                        p1LDot.setVisibility(View.INVISIBLE);
                     }else{
                         p1LRp2LR[2]+=p1LRp2LR[0];
                         if(p1LRp2LR[2]>4){
                             p1LRp2LR[2]-=5;
                         }
                         changeImage(p2Left,p1LRp2LR[2]);
-                        p1LDot.setVisibility(View.INVISIBLE);
-                        p2LDot.setVisibility(View.INVISIBLE);
                     }
                 } else if (Selectedp1LRp2LR[1]){
                     if(Selectedp1LRp2LR[3]){
@@ -176,16 +172,12 @@ public class chopStick extends AppCompatActivity {
                             p1LRp2LR[3]-=5;
                         }
                         changeImage(p2Right,p1LRp2LR[3]);
-                        p2RDot.setVisibility(View.INVISIBLE);
-                        p1RDot.setVisibility(View.INVISIBLE);
                     }else{
                         p1LRp2LR[2]+=p1LRp2LR[1];
                         if(p1LRp2LR[2]>4){
                             p1LRp2LR[2]-=5;
                         }
                         changeImage(p2Left,p1LRp2LR[2]);
-                        p1RDot.setVisibility(View.INVISIBLE);
-                        p2LDot.setVisibility(View.INVISIBLE);
                     }
                 }
                 p1Turn=false;
@@ -199,16 +191,12 @@ public class chopStick extends AppCompatActivity {
                             p1LRp2LR[0]-=5;
                         }
                         changeImage(p1Left,p1LRp2LR[0]);
-                        p2LDot.setVisibility(View.INVISIBLE);
-                        p1LDot.setVisibility(View.INVISIBLE);
                     }else{
                         p1LRp2LR[1]+=p1LRp2LR[2];
                         if(p1LRp2LR[1]>4){
                             p1LRp2LR[1]-=5;
                         }
                         changeImage(p1Right,p1LRp2LR[1]);
-                        p1RDot.setVisibility(View.INVISIBLE);
-                        p2LDot.setVisibility(View.INVISIBLE);
                     }
                 } else if (Selectedp1LRp2LR[3]){
                     if(Selectedp1LRp2LR[0]){
@@ -217,21 +205,21 @@ public class chopStick extends AppCompatActivity {
                             p1LRp2LR[0]-=5;
                         }
                         changeImage(p1Left,p1LRp2LR[0]);
-                        p2RDot.setVisibility(View.INVISIBLE);
-                        p1LDot.setVisibility(View.INVISIBLE);
                     }else{
                         p1LRp2LR[1]+=p1LRp2LR[3];
                         if(p1LRp2LR[1]>4){
                             p1LRp2LR[1]-=5;
                         }
                         changeImage(p1Right,p1LRp2LR[1]);
-                        p1RDot.setVisibility(View.INVISIBLE);
-                        p2RDot.setVisibility(View.INVISIBLE);
                     }
                 }
                 p1Turn=true;
             }
             Arrays.fill(Selectedp1LRp2LR, false);
+            p1RDot.setVisibility(View.INVISIBLE);
+            p2LDot.setVisibility(View.INVISIBLE);
+            p1LDot.setVisibility(View.INVISIBLE);
+            p2RDot.setVisibility(View.INVISIBLE);
             if(p1LRp2LR[0]==p1LRp2LR[1] && p1LRp2LR[0]==0){
                 startActivity(p2);
                 chopStick.this.finish();

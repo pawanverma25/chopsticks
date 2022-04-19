@@ -19,7 +19,7 @@ public class chopStickOne extends AppCompatActivity {
     public boolean[] SelectedpLRcLR = new boolean[4];
     public boolean pTurn = true;
     public AtomicBoolean shuffled;
-    public ImageView cpuTDot,pTDot;
+    public ImageView cpuTDot,pTDot, pRDot, pLDot, cpuLDot,cpuRDot;
     public  ImageButton cpuLeft, cpuRight;
 
 
@@ -47,10 +47,10 @@ public class chopStickOne extends AppCompatActivity {
         pTDot = findViewById(R.id.p1TurnImage);
         cpuTDot = findViewById(R.id.p2TurnImage);
 
-        ImageView pRDot = findViewById(R.id.p1RightDot);
-        ImageView pLDot = findViewById(R.id.p1LeftDot);
-        ImageView cpuLDot = findViewById(R.id.p2LeftDot);
-        ImageView cpuRDot = findViewById(R.id.p2RightDot);
+        pRDot = findViewById(R.id.p1RightDot);
+        pLDot = findViewById(R.id.p1LeftDot);
+        cpuLDot = findViewById(R.id.p2LeftDot);
+        cpuRDot = findViewById(R.id.p2RightDot);
 
         Intent p=new Intent(chopStickOne.this, pWon.class);
         Intent cpu =new Intent(chopStickOne.this, cpuwon.class);
@@ -160,16 +160,12 @@ public class chopStickOne extends AppCompatActivity {
                             pLRcLR[3]-=5;
                         }
                         changeImage(cpuRight, pLRcLR[3]);
-                        cpuRDot.setVisibility(View.INVISIBLE);
-                        pLDot.setVisibility(View.INVISIBLE);
                     }else{
                         pLRcLR[2]+= pLRcLR[0];
                         if(pLRcLR[2]>4){
                             pLRcLR[2]-=5;
                         }
                         changeImage(cpuLeft, pLRcLR[2]);
-                        pLDot.setVisibility(View.INVISIBLE);
-                        cpuLDot.setVisibility(View.INVISIBLE);
                     }
                 } else if (SelectedpLRcLR[1]){
                     if(SelectedpLRcLR[3]){
@@ -178,16 +174,12 @@ public class chopStickOne extends AppCompatActivity {
                             pLRcLR[3]-=5;
                         }
                         changeImage(cpuRight, pLRcLR[3]);
-                        cpuRDot.setVisibility(View.INVISIBLE);
-                        pRDot.setVisibility(View.INVISIBLE);
                     }else{
                         pLRcLR[2]+= pLRcLR[1];
                         if(pLRcLR[2]>4){
                             pLRcLR[2]-=5;
                         }
                         changeImage(cpuLeft, pLRcLR[2]);
-                        pRDot.setVisibility(View.INVISIBLE);
-                        cpuLDot.setVisibility(View.INVISIBLE);
                     }
                 }
                 pTurn =false;
@@ -202,16 +194,12 @@ public class chopStickOne extends AppCompatActivity {
                             pLRcLR[0]-=5;
                         }
                         changeImage(pLeft, pLRcLR[0]);
-                        cpuLDot.setVisibility(View.INVISIBLE);
-                        pLDot.setVisibility(View.INVISIBLE);
                     }else{
                         pLRcLR[1]+= pLRcLR[2];
                         if(pLRcLR[1]>4){
                             pLRcLR[1]-=5;
                         }
                         changeImage(pRight, pLRcLR[1]);
-                        pRDot.setVisibility(View.INVISIBLE);
-                        cpuLDot.setVisibility(View.INVISIBLE);
                     }
                 } else if (SelectedpLRcLR[3]){
                     if(SelectedpLRcLR[0]){
@@ -220,20 +208,20 @@ public class chopStickOne extends AppCompatActivity {
                             pLRcLR[0]-=5;
                         }
                         changeImage(pLeft, pLRcLR[0]);
-                        cpuRDot.setVisibility(View.INVISIBLE);
-                        pLDot.setVisibility(View.INVISIBLE);
                     }else{
                         pLRcLR[1]+= pLRcLR[3];
                         if(pLRcLR[1]>4){
                             pLRcLR[1]-=5;
                         }
                         changeImage(pRight, pLRcLR[1]);
-                        pRDot.setVisibility(View.INVISIBLE);
-                        cpuRDot.setVisibility(View.INVISIBLE);
                     }
                 }
                 pTurn =true;
             }
+            cpuRDot.setVisibility(View.INVISIBLE);
+            pLDot.setVisibility(View.INVISIBLE);
+            cpuLDot.setVisibility(View.INVISIBLE);
+            pRDot.setVisibility(View.INVISIBLE);
             Arrays.fill(SelectedpLRcLR, false);
             if(pLRcLR[0]== pLRcLR[1] && pLRcLR[0]==0){
                 startActivity(cpu);
@@ -358,10 +346,25 @@ public class chopStickOne extends AppCompatActivity {
     }
     protected void selectForCPU() {
         //TODO: write algorithm for single player
-        if((pLRcLR[2]==0)||(pLRcLR[3]==0)){
-            cpuShuffle();
-            if(shuffled.get()) {
-                shuffled.set(false);
+
+        if (pLRcLR[2]==0){
+            if(((2*pLRcLR[3]+pLRcLR[0]==5) && pLRcLR[1]!=0)){
+                SelectedpLRcLR[1]=true;
+                SelectedpLRcLR[3]=true;
+                return;
+            }else if(((2*pLRcLR[3]+pLRcLR[1]==5) && pLRcLR[0]!=0)){
+                SelectedpLRcLR[0]=true;
+                SelectedpLRcLR[3]=true;
+                return;
+            }
+        } else if (pLRcLR[3]==0){
+            if(((2*pLRcLR[2]+pLRcLR[0]==5) && pLRcLR[1]!=0)){
+                SelectedpLRcLR[1]=true;
+                SelectedpLRcLR[2]=true;
+                return;
+            }else if(((2*pLRcLR[2]+pLRcLR[1]==5) && pLRcLR[0]!=0)){
+                SelectedpLRcLR[0]=true;
+                SelectedpLRcLR[2]=true;
                 return;
             }
         }
@@ -371,21 +374,35 @@ public class chopStickOne extends AppCompatActivity {
             SelectedpLRcLR[0]=true;
             SelectedpLRcLR[2]=true;
             return;
-        }
-        if((pLRcLR[1]+pLRcLR[2])==5) {
+        } else if((pLRcLR[1]+pLRcLR[2])==5) {
             SelectedpLRcLR[1]=true;
             SelectedpLRcLR[2]=true;
             return;
-        }
-        if((pLRcLR[0]+pLRcLR[3])==5) {
+        }else if((pLRcLR[0]+pLRcLR[3])==5) {
             SelectedpLRcLR[0]=true;
             SelectedpLRcLR[3]=true;
             return;
-        }
-        if((pLRcLR[1]+pLRcLR[3])==5) {
+        }else if((pLRcLR[1]+pLRcLR[3])==5) {
             SelectedpLRcLR[1]=true;
             SelectedpLRcLR[3]=true;
             return;
+        }
+
+        if((pLRcLR[2]==0)||(pLRcLR[3]==0)){
+            cpuShuffle();
+            if(shuffled.get()) {
+                shuffled.set(false);
+                return;
+            }
+        }
+
+        int sRandom = new Random().nextInt(2);
+        if(sRandom==1){
+            cpuShuffle();
+            if(shuffled.get()) {
+                shuffled.set(false);
+                return;
+            }
         }
 
         int pRandom = new Random().nextInt(2);
@@ -403,6 +420,7 @@ public class chopStickOne extends AppCompatActivity {
         }
 
     }
+
 
     protected void changeImage(ImageButton imgBtn, int i){
         switch(i) {
