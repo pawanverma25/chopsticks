@@ -27,4 +27,5 @@
     <string name="cpu">CPU</string>
     <string name="uwon">Congrats!!\nYou Won.</string>
     <string name="ulost">Oops!!\nYou Lost.</string>
+    <string name="chop_about_image_desc">Image of two hands holding 2 and 3 fingers up</string>
 </resources>

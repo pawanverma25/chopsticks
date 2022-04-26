@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardview_dark_background"
+    app:layoutDescription="@xml/activity_about_scene2"
     tools:context=".about">
 
     <TextView
@@ -12,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
         android:scrollbars="vertical"
         android:text="@string/game_desc"
@@ -21,7 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/textView4"
@@ -34,4 +35,14 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/game_desc"
         app:layout_constraintStart_toStartOf="@+id/game_desc" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="350dp"
+        android:layout_height="275dp"
+        app:layout_constraintEnd_toEndOf="@+id/game_desc"
+        app:layout_constraintStart_toStartOf="@+id/game_desc"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/chop_about"
+        android:contentDescription="@string/chop_about_image_desc" />
+</androidx.constraintlayout.motion.widget.MotionLayout>
