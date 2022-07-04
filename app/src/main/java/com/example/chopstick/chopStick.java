@@ -11,12 +11,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class chopStick extends AppCompatActivity {
     public int[] p1LRp2LR = new int[4];
     public boolean[] Selectedp1LRp2LR = new boolean[4];
-    public boolean p1Turn = true;
+    public boolean p1Turn;
 
 
     @Override
@@ -49,6 +50,17 @@ public class chopStick extends AppCompatActivity {
         ImageView p2LDot = findViewById(R.id.p2LeftDot);
         ImageView p1TDot = findViewById(R.id.p1TurnImage);
         ImageView p2TDot = findViewById(R.id.p2TurnImage);
+
+
+        int rand = new Random().nextInt(2);
+        p1Turn = rand == 0;
+        if(p1Turn){
+            p1TDot.setVisibility(View.VISIBLE);
+            p2TDot.setVisibility(View.INVISIBLE);
+        } else {
+            p1TDot.setVisibility(View.INVISIBLE);
+            p2TDot.setVisibility(View.VISIBLE);
+        }
 
         AtomicBoolean alert_visible= new AtomicBoolean(false);
         AtomicBoolean shuffled = new AtomicBoolean(false);

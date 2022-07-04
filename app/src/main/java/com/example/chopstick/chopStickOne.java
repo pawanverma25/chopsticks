@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class chopStickOne extends AppCompatActivity {
     public int[] pLRcLR = new int[4];
     public boolean[] SelectedpLRcLR = new boolean[4];
-    public boolean pTurn = true;
+    public boolean pTurn;
     public AtomicBoolean shuffled;
     public ImageView cpuTDot,pTDot, pRDot, pLDot, cpuLDot,cpuRDot;
     public  ImageButton cpuLeft, cpuRight;
@@ -51,6 +51,16 @@ public class chopStickOne extends AppCompatActivity {
         pLDot = findViewById(R.id.p1LeftDot);
         cpuLDot = findViewById(R.id.p2LeftDot);
         cpuRDot = findViewById(R.id.p2RightDot);
+
+        int rand = new Random().nextInt(2);
+        pTurn = rand == 0;
+        if(pTurn){
+            pTDot.setVisibility(View.VISIBLE);
+            cpuTDot.setVisibility(View.INVISIBLE);
+        } else {
+            pTDot.setVisibility(View.INVISIBLE);
+            cpuTDot.setVisibility(View.VISIBLE);
+        }
 
         Intent p=new Intent(chopStickOne.this, pWon.class);
         Intent cpu =new Intent(chopStickOne.this, cpuwon.class);
