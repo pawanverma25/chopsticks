@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
-
 public class chopStick extends AppCompatActivity {
     public int[] p1LRp2LR = new int[4];
     public boolean[] Selectedp1LRp2LR = new boolean[4];
