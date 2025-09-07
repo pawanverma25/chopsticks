@@ -1,13 +1,15 @@
-package com.example.chopstick;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.chopstick.screen;
 
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-public class about extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.chopstick.R;
+
+public class AboutScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

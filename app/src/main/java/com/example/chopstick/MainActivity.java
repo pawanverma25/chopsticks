@@ -1,11 +1,14 @@
 package com.example.chopstick;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.chopstick.screen.AboutScreen;
+import com.example.chopstick.screen.PlayScreen;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         Button abt = findViewById(R.id.startaboutBtn);
         Button quit = findViewById(R.id.quitBtn);
 
-        Intent i = new Intent(MainActivity.this, playScreen.class);
-        Intent a = new Intent(MainActivity.this, about.class);
+        Intent i = new Intent(MainActivity.this, PlayScreen.class);
+        Intent a = new Intent(MainActivity.this, AboutScreen.class);
 
         play.setOnClickListener(view -> startActivity(i));
 

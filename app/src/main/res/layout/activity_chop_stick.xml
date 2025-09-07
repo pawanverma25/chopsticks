@@ -101,45 +101,45 @@
         android:id="@+id/p2RightDot"
         android:layout_width="15dp"
         android:layout_height="115dp"
+        android:contentDescription="@string/selection_dot_desc"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/p2righthand"
         app:layout_constraintStart_toStartOf="@+id/p2righthand"
         app:layout_constraintTop_toTopOf="@+id/p2righthand"
-        app:srcCompat="@drawable/dot"
-        android:contentDescription="@string/selection_dot_desc" />
+        app:srcCompat="@drawable/dot" />
 
     <ImageView
         android:id="@+id/p2LeftDot"
         android:layout_width="15dp"
         android:layout_height="115dp"
+        android:contentDescription="@string/selection_dot_desc"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/p2lefthand"
         app:layout_constraintStart_toStartOf="@+id/p2lefthand"
         app:layout_constraintTop_toTopOf="@+id/p2lefthand"
-        app:srcCompat="@drawable/dot"
-        android:contentDescription="@string/selection_dot_desc" />
+        app:srcCompat="@drawable/dot" />
 
     <ImageView
         android:id="@+id/p1LeftDot"
         android:layout_width="15dp"
         android:layout_height="115dp"
+        android:contentDescription="@string/selection_dot_desc"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/p1lefthand"
         app:layout_constraintEnd_toEndOf="@+id/p1lefthand"
         app:layout_constraintStart_toStartOf="@+id/p1lefthand"
-        app:srcCompat="@drawable/dot"
-        android:contentDescription="@string/selection_dot_desc" />
+        app:srcCompat="@drawable/dot" />
 
     <ImageView
         android:id="@+id/p1RightDot"
         android:layout_width="15dp"
         android:layout_height="115dp"
+        android:contentDescription="@string/selection_dot_desc"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/p1righthand"
         app:layout_constraintEnd_toEndOf="@+id/p1righthand"
         app:layout_constraintStart_toStartOf="@+id/p1righthand"
-        app:srcCompat="@drawable/dot"
-        android:contentDescription="@string/selection_dot_desc" />
+        app:srcCompat="@drawable/dot" />
 
     <ImageButton
         android:id="@+id/Playbtn"
@@ -159,21 +159,21 @@
         android:layout_width="10dp"
         android:layout_height="40dp"
         android:layout_marginStart="5dp"
+        android:contentDescription="@string/p1_dot_desc"
         app:layout_constraintBottom_toTopOf="@+id/p1lefthand"
         app:layout_constraintStart_toEndOf="@+id/player1"
-        app:srcCompat="@drawable/purple_dot"
-        android:contentDescription="@string/p1_dot_desc" />
+        app:srcCompat="@drawable/purple_dot" />
 
     <ImageView
         android:id="@+id/p2TurnImage"
         android:layout_width="10dp"
         android:layout_height="40dp"
         android:layout_marginEnd="5dp"
+        android:contentDescription="@string/p2_dot_desc"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/player2"
         app:layout_constraintTop_toBottomOf="@+id/p2lefthand"
-        app:srcCompat="@drawable/purple_dot"
-        android:contentDescription="@string/p2_dot_desc" />
+        app:srcCompat="@drawable/purple_dot" />
 
     <ImageButton
         android:id="@+id/p1Shuffle"

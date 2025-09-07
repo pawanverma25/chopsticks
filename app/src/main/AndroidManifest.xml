@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.chopstick">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -10,25 +9,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-            android:name=".cpuwon"
+            android:name=".screen.GameOverScreen"
             android:exported="false" />
         <activity
-            android:name=".pWon"
-            android:exported="false" />
-        <activity
-            android:name=".about"
-            android:exported="false" />
-        <activity
-            android:name=".p2won"
-            android:exported="false" />
-        <activity
-            android:name=".p1Won"
+            android:name=".screen.AboutScreen"
             android:exported="false" />
         <activity
             android:name=".chopStickOne"
             android:exported="false" />
         <activity
-            android:name=".playScreen"
+            android:name=".screen.PlayScreen"
             android:exported="false" />
         <activity
             android:name=".chopStick"

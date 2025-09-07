@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/cardview_dark_background"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+    android:background="@color/cardview_dark_background"
+    tools:context=".MainActivity">
 
     <Button
         android:id="@+id/startaboutBtn"
@@ -42,11 +42,11 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:shadowColor="@color/purple_shadow"
         android:shadowDx="0.0"
         android:shadowDy="0.0"
         android:shadowRadius="16"
-        android:layout_marginTop="20dp"
         android:text="@string/meta_title"
         android:textColor="@color/purple_text"
         app:layout_constraintEnd_toEndOf="@+id/txtWlcm"
@@ -72,8 +72,8 @@
         android:layout_marginTop="50dp"
         android:background="@color/cardview_dark_background"
         android:shadowColor="@color/blue_shadow"
-        android:textColor="@color/blue_text"
         android:text="@string/quit"
+        android:textColor="@color/blue_text"
         app:layout_constraintEnd_toEndOf="@+id/startaboutBtn"
         app:layout_constraintStart_toStartOf="@+id/startaboutBtn"
         app:layout_constraintTop_toBottomOf="@+id/startaboutBtn" />

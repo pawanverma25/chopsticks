@@ -40,9 +40,9 @@
         android:id="@+id/imageView3"
         android:layout_width="350dp"
         android:layout_height="275dp"
+        android:contentDescription="@string/chop_about_image_desc"
         app:layout_constraintEnd_toEndOf="@+id/game_desc"
         app:layout_constraintStart_toStartOf="@+id/game_desc"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/chop_about"
-        android:contentDescription="@string/chop_about_image_desc" />
+        app:srcCompat="@drawable/chop_about" />
 </androidx.constraintlayout.motion.widget.MotionLayout>

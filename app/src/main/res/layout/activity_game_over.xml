@@ -8,13 +8,12 @@
     tools:context=".pWon">
 
     <TextView
-        android:id="@+id/pWontxt"
+        android:id="@+id/resultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="200dp"
         android:shadowColor="@color/purple_shadow"
         android:shadowRadius="32"
-        android:text="@string/uwon"
         android:textAlignment="center"
         android:textColor="@color/purple_text"
 
@@ -30,24 +29,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:background="@color/cardview_dark_background"
-        android:text="@string/restart"
-        android:shadowRadius="32"
-        android:textColor="@color/blue_text"
         android:shadowColor="@color/blue_shadow"
-        app:layout_constraintEnd_toEndOf="@+id/pWontxt"
-        app:layout_constraintStart_toStartOf="@+id/pWontxt"
-        app:layout_constraintTop_toBottomOf="@+id/pWontxt" />
+        android:shadowRadius="32"
+        android:text="@string/restart"
+        android:textColor="@color/blue_text"
+        app:layout_constraintEnd_toEndOf="@+id/resultText"
+        app:layout_constraintStart_toStartOf="@+id/resultText"
+        app:layout_constraintTop_toBottomOf="@+id/resultText" />
 
     <Button
         android:id="@+id/homeBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:shadowRadius="32"
         android:background="@color/cardview_dark_background"
-        android:textColor="@color/blue_text"
         android:shadowColor="@color/blue_shadow"
+        android:shadowRadius="32"
         android:text="@string/home"
+        android:textColor="@color/blue_text"
         app:layout_constraintEnd_toEndOf="@+id/restartBtn"
         app:layout_constraintStart_toStartOf="@+id/restartBtn"
         app:layout_constraintTop_toBottomOf="@+id/restartBtn" />
