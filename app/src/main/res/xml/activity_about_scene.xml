@@ -17,7 +17,7 @@
             motion:maxVelocity="10.0" />
     </Transition>
 
-    <ConstraintSet android:id="@+id/start"></ConstraintSet>
+    <ConstraintSet android:id="@+id/start" />
 
     <ConstraintSet android:id="@+id/end">
         <Constraint

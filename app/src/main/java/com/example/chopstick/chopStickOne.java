@@ -32,7 +32,7 @@ public class chopStickOne extends AppCompatActivity implements ChopSticksConstan
         setContentView(R.layout.activity_chop_stick_one);
 
         // full screen
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS, WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS);
 
         //array initialisation
         Arrays.fill(SelectedpLRcLR, false);

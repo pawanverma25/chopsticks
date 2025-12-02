@@ -16,8 +16,7 @@ import lombok.EqualsAndHashCode;
  * @since chopstick@v2.0
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class Hand extends AppCompatActivity {
+public class Hand {
     private ImageButton button;
     private ImageView dot;
     private boolean isSelected;
@@ -28,17 +27,12 @@ public class Hand extends AppCompatActivity {
     public Hand(HandResource resource) {
         super();
         this.resource = resource;
-        this.button = findViewById(resource.getButton());
+        this.button = resource.getButton();
         this.fingers = 1;
         this.isAlive = true;
         this.isSelected = false;
         this.button.setBackgroundResource(HandResource.HAND_1);
-        this.dot = findViewById(resource.getDot());
-        this.button.setOnClickListener(view -> {
-            this.isSelected = !this.isSelected;
-            if (this.isSelected) this.dot.setVisibility(View.VISIBLE);
-            else this.dot.setVisibility(View.INVISIBLE);
-        });
+        this.dot = resource.getDot();
     }
 
     public void setFingers(int fingers) {

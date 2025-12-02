@@ -8,10 +8,9 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.chopstick.R;
-import com.example.chopstick.chopStick;
-import com.example.chopstick.chopStickOne;
+import com.example.chopstick.util.ChopSticksConstant;
 
-public class PlayScreen extends AppCompatActivity {
+public class PlayScreen extends AppCompatActivity implements ChopSticksConstant {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,20 +18,23 @@ public class PlayScreen extends AppCompatActivity {
         setContentView(R.layout.activity_play_screen);
 
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS, WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS);
 
         ImageButton onePlayerButton = findViewById(R.id.onepbutton);
         ImageButton twoPlayerButton = findViewById(R.id.twopButton);
         onePlayerButton.setOnClickListener(view -> {
-            Intent iChopOne = new Intent(PlayScreen.this, chopStickOne.class);
-            startActivity(iChopOne);
+            Intent gameScreen = new Intent(PlayScreen.this, GameOnScreen.class);
+            gameScreen.putExtra(ONE_PLAYER_MODE, true);
+            startActivity(gameScreen);
             PlayScreen.this.finish();
         });
 
         twoPlayerButton.setOnClickListener(view -> {
-            Intent iChop = new Intent(PlayScreen.this, chopStick.class);
-            startActivity(iChop);
+            Intent gameScreen = new Intent(PlayScreen.this, GameOnScreen.class);
+            gameScreen.putExtra(ONE_PLAYER_MODE, false);
+            startActivity(gameScreen);
             PlayScreen.this.finish();
         });
+
     }
 }

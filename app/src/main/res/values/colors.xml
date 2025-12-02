@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="blue_text">#33ccff</color>
+    <color name="background_color">#1e1f22</color>
     <color name="blue_shadow">#006699</color>
     <color name="purple_text">#cc99ff</color>
     <color name="purple_shadow">#9933ff</color>

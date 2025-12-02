@@ -1,8 +1,13 @@
 package com.example.chopstick.resource;
 
+import android.widget.ImageButton;
+import android.widget.ImageView;
+
 import com.example.chopstick.R;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Pawan Verma
@@ -10,6 +15,8 @@ import lombok.Data;
  */
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class HandResource {
     public static final int HAND_0 = R.drawable.hand0;
     public static final int HAND_1 = R.drawable.hand1;
@@ -17,7 +24,7 @@ public class HandResource {
     public static final int HAND_2 = R.drawable.hand2;
     public static final int HAND_4 = R.drawable.hand4;
 
-    private int button;
-    private int dot;
+    private ImageButton button;
+    private ImageView dot;
 
 }
