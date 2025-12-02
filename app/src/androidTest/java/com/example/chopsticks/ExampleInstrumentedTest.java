@@ -1,4 +1,4 @@
-package com.example.chopstick;
+package dev.pawan.chopsticks;
 
 import static org.junit.Assert.assertEquals;
 
