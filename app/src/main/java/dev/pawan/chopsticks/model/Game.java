@@ -1,6 +1,8 @@
 package dev.pawan.chopsticks.model;
 
 import android.content.Intent;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,7 +54,7 @@ public class Game implements ChopSticksConstant {
         Player player2 = new Player(player2Resource, context);
         if (this.isSinglePlayer()) {
             player2.setName("Computer");
-            player2.setComputer(true);
+            player2.setIsComputer(true);
         } else {
             player2.setName("Player 2");
         }
@@ -71,32 +73,30 @@ public class Game implements ChopSticksConstant {
         if (isGameOver) return;
         Player currentPlayer = isPlayer1Turn ? player1 : player2;
         Player opponentPlayer = isPlayer1Turn ? player2 : player1;
-        if(currentPlayer.isHasShuffled()) {
+        if(currentPlayer.isHasShuffled() || opponentPlayer.isHasShuffled()) {
             currentPlayer.setHasShuffled(false);
             opponentPlayer.setHasShuffled(false);
-            setState(this.state.flipPlayers());
+            setState(new State(player1.getLeftHand().getFingers(), player1.getRightHand().getFingers(), player2.getLeftHand().getFingers(), player2.getRightHand().getFingers(), !isPlayer1Turn));
             return;
         }
         State nextState;
 
         if (currentPlayer.isComputer()) {
             ChopstickAI ai = new ChopstickAI();
-            nextState = ai.bestMove(this.state);
-            System.out.println("Cur State : " + state);
-            System.out.println("Next State : " + nextState);
+            nextState = ai.chooseBestMove(this.state);
             this.setState(nextState);
         } else {
             Hand selectedHand = getSelectedHand(currentPlayer);
             Hand targetHand = getSelectedHand(opponentPlayer);
             if(targetHand == null || selectedHand == null) {
+                Toast.makeText(context, "Please select the hands", Toast.LENGTH_SHORT).show();
                 return;
             }
             int newFingers = (selectedHand.getFingers() + targetHand.getFingers()) % 5;
             targetHand.setFingers(newFingers);
-            nextState = new State(player1.getLeftHand().getFingers(), player1.getRightHand().getFingers(), player2.getLeftHand().getFingers(), player2.getRightHand().getFingers(), isPlayer1Turn);
+            nextState = new State(player1.getLeftHand().getFingers(), player1.getRightHand().getFingers(), player2.getLeftHand().getFingers(), player2.getRightHand().getFingers(), !isPlayer1Turn);
+            this.setState(nextState);
         }
-        nextState.flipPlayers();
-        this.setState(nextState);
 
         if (!opponentPlayer.getLeftHand().isAlive() && !opponentPlayer.getRightHand().isAlive()) {
             isGameOver = true;
@@ -105,8 +105,6 @@ public class Game implements ChopSticksConstant {
             gameOverIntent.putExtra("resultText", "Congrats!!\n" + winner.getName() + " wins!");
             context.startActivity(gameOverIntent);
             context.finish();
-        } else {
-            this.setIsPlayer1Turn(!isPlayer1Turn);
         }
     }
 
@@ -125,7 +123,7 @@ public class Game implements ChopSticksConstant {
             player1.getTurnIndicator().setVisibility(android.view.View.INVISIBLE);
             player2.getTurnIndicator().setVisibility(android.view.View.VISIBLE);
             player1.getShuffleButton().setVisibility(android.view.View.INVISIBLE);
-            player2.getShuffleButton().setVisibility(android.view.View.VISIBLE);
+            if(!player2.isComputer()) player2.getShuffleButton().setVisibility(android.view.View.VISIBLE);
         }
         player1.unselectHands();
         player2.unselectHands();

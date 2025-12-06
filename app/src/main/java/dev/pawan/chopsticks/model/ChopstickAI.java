@@ -1,61 +1,83 @@
 package dev.pawan.chopsticks.model;
 
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ChopstickAI {
-    private final Map<State, Boolean> memo = new HashMap<>();
-    public boolean isWinning(State s, int depth) {
-        if (depth == 0) return false; // limit for recursion, not game-theoretic but practical
 
-        // If opponent is dead (after move), current player wins
-        if (s.player2LeftFingers == 0 && s.player2RightFingers == 0) return true;
-        // If current player is dead, they lose
-        if (s.player1LeftFingers == 0 && s.player1RightFingers == 0) return false;
+    private final Map<State, Integer> memo = new HashMap<>();
 
-        if (memo.containsKey(s)) return Boolean.TRUE.equals(memo.get(s));
+    private int aiDifficulty = 20;
 
-        for (State next : generateMoves(s)) {
-            State flipped = next.flipPlayers();
-            if (!isWinning(flipped, depth - 1)) {
-                memo.put(s, true);
-                return true;
+    public Set<State> generateAllPossibleNextStates(State s){
+        Set<State> result = new HashSet<>();
+        if(s.isTerminal() != 0) return result;
+        //case1 l -> l
+        if(s.isPlayer1Turn && Math.min(s.player1LeftFingers, s.player2LeftFingers) > 0) result.add(new State(s.player1LeftFingers, s.player1RightFingers, s.player2LeftFingers + s.player1LeftFingers, s.player2RightFingers, false));
+        if(!s.isPlayer1Turn && Math.min(s.player2LeftFingers, s.player1LeftFingers) > 0) result.add(new State(s.player1LeftFingers + s.player2LeftFingers, s.player1RightFingers, s.player2LeftFingers, s.player2RightFingers, true));
+        //case2 l -> r
+        if(s.isPlayer1Turn && Math.min(s.player1LeftFingers, s.player2RightFingers) > 0) result.add(new State(s.player1LeftFingers, s.player1RightFingers, s.player2LeftFingers, s.player2RightFingers + s.player1LeftFingers, false));
+        if(!s.isPlayer1Turn && Math.min(s.player2LeftFingers, s.player1RightFingers) > 0) result.add(new State(s.player1LeftFingers, s.player1RightFingers + s.player2LeftFingers, s.player2LeftFingers, s.player2RightFingers, true));
+        //case3 r -> l
+        if(s.isPlayer1Turn && Math.min(s.player1RightFingers, s.player2LeftFingers) > 0) result.add(new State(s.player1LeftFingers, s.player1RightFingers, s.player2LeftFingers + s.player1RightFingers, s.player2RightFingers, false));
+        if(!s.isPlayer1Turn && Math.min(s.player2RightFingers, s.player1LeftFingers) > 0) result.add(new State(s.player1LeftFingers + s.player2RightFingers, s.player1RightFingers, s.player2LeftFingers, s.player2RightFingers, true));
+        //case4 r -> r
+        if(s.isPlayer1Turn && Math.min(s.player1RightFingers, s.player2RightFingers) > 0) result.add(new State(s.player1LeftFingers, s.player1RightFingers, s.player2LeftFingers, s.player2RightFingers + s.player1RightFingers, false));
+        if(!s.isPlayer1Turn && Math.min(s.player2RightFingers, s.player1RightFingers) > 0) result.add(new State(s.player1LeftFingers, s.player1RightFingers + s.player2RightFingers, s.player2LeftFingers, s.player2RightFingers, true));
+        //case6 shuffle
+        if(s.isPlayer1Turn) {
+            int total = s.player1LeftFingers + s.player1RightFingers;
+            for(int i = 1; i < total; i++) {
+                if(i != s.player1LeftFingers && i != s.player1RightFingers && i < 5 && (total - i) < 5) result.add(new State(i, total - i, s.player2LeftFingers, s.player2RightFingers, false));
+            }
+        } else {
+            int total = s.player2LeftFingers + s.player2RightFingers;
+            for(int i = 1; i < total; i++) {
+                if(i != s.player2LeftFingers && i != s.player2RightFingers && i < 5 && (total - i) < 5) result.add(new State(s.player1LeftFingers, s.player1RightFingers, i, total - i, true));
             }
         }
 
-        memo.put(s, false);
-        return false;
+        return result;
     }
 
-    private List<State> generateMoves(State s) {
-        List<State> moves = new ArrayList<>();
-
-        int[] myHands = {s.player1LeftFingers, s.player1RightFingers};
-        int[] oppHands = {s.player2LeftFingers, s.player2RightFingers};
-
-        for (int mh : myHands) {
-            if (mh == 0) continue;
-            for (int i = 0; i < 2; i++) {
-                if (oppHands[i] == 0) continue;
-                int[] newOpp = oppHands.clone();
-                newOpp[i] = (newOpp[i] + mh) % 5;
-                moves.add(new State(newOpp[0], newOpp[1], s.player1LeftFingers, s.player1RightFingers, true));
-            }
+    private Integer solve(final State s, int currentDepth) {
+        if(currentDepth > aiDifficulty) return 0;
+        if(memo.containsKey(s)) return memo.get(s);
+        int result = s.isTerminal();
+        if(result != 0){
+            memo.put(s, result);
+            return result;
         }
 
-        return moves;
-    }
-    public State bestMove(State current) {
-        for (State next : generateMoves(current)) {
-            if (isWinning(next, 5)) {
-                return next;
+        Set<State> moves = generateAllPossibleNextStates(s);
+        int best = -2;
+
+        for(State nextState : moves){
+            int v = -solve(nextState, currentDepth + 1);
+            if(v > best) {
+                best = v;
+                if(best == 1){
+                    break;
+                }
             }
         }
-        List<State> moves = generateMoves(current);
-        return moves.isEmpty() ? null : moves.get(0);
+        if(best == -2) best = -1;
+        memo.put(s, best);
+        return best;
     }
+
+    public State chooseBestMove (final State s){
+        Set<State> moves = generateAllPossibleNextStates(s);
+        this.aiDifficulty = (int)Math.abs(Math.random() * 100);
+        int bestValue = -2;
+        State bestMove = null;
+        for(State move : moves){
+            int v = -solve(move,1);
+            if(v > bestValue){
+                bestValue = v;
+                bestMove = move;
+            }
+        }
+        return bestMove;
+    }
+
 }
-

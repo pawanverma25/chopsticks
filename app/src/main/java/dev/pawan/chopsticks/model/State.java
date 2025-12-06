@@ -47,4 +47,15 @@ public class State {
     public State flipPlayers() {
         return new State(player2LeftFingers, player2RightFingers, player1LeftFingers, player1RightFingers, isPlayer1Turn);
     }
+
+    public int isTerminal() {
+        if(this.isPlayer1Turn) {
+            if(this.player1LeftFingers == 0 && this.player1RightFingers == 0) return -1;
+            if(this.player2LeftFingers == 0 && this.player2RightFingers == 0) return 1;
+        } else {
+            if(this.player2LeftFingers == 0 && this.player2RightFingers == 0) return -1;
+            if(this.player1LeftFingers == 0 && this.player1RightFingers == 0) return 1;
+        }
+        return 0;
+    }
 }
