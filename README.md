@@ -6,13 +6,13 @@ It's an android application for the well known hand game "Chopsticks".Chopsticks
 <img src="https://raw.githubusercontent.com/pawanverma25/chopsticks/master/chop.jpg" width="100"> </p>
 
 ## Screenshots
-
+https://raw.githubusercontent.com/pawanverma25/media/refs/heads/main/playscreen.png
 <p align="center">
-    <img src="https://raw.githubusercontent.com/pawanverma25/media/main/main.png?token=GHSAT0AAAAAABWIUKMJEKQXA7VM2X7RF7KMYWZH5BQ " width="250">
-    <img src="https://raw.githubusercontent.com/pawanverma25/media/main/playscreen.png?token=GHSAT0AAAAAABWIUKMJR5YTY4YGTKXIENAIYWZH5HQ" width="250">
-    <img src="https://raw.githubusercontent.com/pawanverma25/media/main/about.png?token=GHSAT0AAAAAABWIUKMJ6QV4HTIJWTLCLNW2YWZH45A" width="250">
-    <img src="https://raw.githubusercontent.com/pawanverma25/media/main/1player.png?token=GHSAT0AAAAAABWIUKMI7KW7MCHN5PZQB3RCYWZH37Q" width="250">
-    <img src="https://raw.githubusercontent.com/pawanverma25/media/main/2players.png?token=GHSAT0AAAAAABWIUKMJYOLYHAEECXXQMG3CYWZH4MQ" width="250">
+    <img src="https://raw.githubusercontent.com/pawanverma25/media/refs/heads/main/main.png" width="250">
+    <img src="https://raw.githubusercontent.com/pawanverma25/media/refs/heads/main/playscreen.png" width="250">
+    <img src="https://raw.githubusercontent.com/pawanverma25/media/refs/heads/main/about.png" width="250">
+    <img src="https://raw.githubusercontent.com/pawanverma25/media/main/refs/heads/1player.png" width="250">
+    <img src="https://raw.githubusercontent.com/pawanverma25/media/refs/heads/main/2players.png" width="250">
 </p>
 
 ## Installation
